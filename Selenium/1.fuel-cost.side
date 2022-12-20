@@ -1,0 +1,98 @@
+{
+  "id": "9d8c83d5-e874-4c4d-b7dd-4fb5d475c9e1",
+  "version": "2.0",
+  "name": "1.fuel-cost",
+  "url": "https://www.calculator.net",
+  "tests": [{
+    "id": "935bd106-7c27-44ee-a432-32ffb638ef8d",
+    "name": "Untitled",
+    "commands": [{
+      "id": "8154c942-a8b9-4787-9c6d-e061762333da",
+      "comment": "",
+      "command": "open",
+      "target": "/fuel-cost-calculator.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8066703b-566c-467f-b1cf-5e3599a419ab",
+      "comment": "",
+      "command": "type",
+      "target": "name=tripdistance",
+      "targets": [
+        ["name=tripdistance", "name"],
+        ["css=tr:nth-child(1) .inhalf", "css:finder"],
+        ["xpath=//input[@name='tripdistance']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/table/tbody/tr/td[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "333"
+    }, {
+      "id": "742b75f9-f729-45c8-96c6-1bb2cfa40f52",
+      "comment": "",
+      "command": "type",
+      "target": "name=fuelefficiency",
+      "targets": [
+        ["name=fuelefficiency", "name"],
+        ["css=tr:nth-child(2) .inhalf", "css:finder"],
+        ["xpath=//input[@name='fuelefficiency']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "5.5"
+    }, {
+      "id": "f505159a-5506-47eb-8454-5b1c5f17c247",
+      "comment": "",
+      "command": "type",
+      "target": "name=gasprice",
+      "targets": [
+        ["name=gasprice", "name"],
+        ["css=.indollar", "css:finder"],
+        ["xpath=//input[@name='gasprice']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "1.8"
+    }, {
+      "id": "4ba101b3-7185-42ed-b8b7-1745271f839b",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(4) input",
+      "targets": [
+        ["css=tr:nth-child(4) input", "css:finder"],
+        ["xpath=//input[@value='Calculate']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/table/tbody/tr[4]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0bdb02f-8f4a-4354-9454-ee3ff73930b5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.verybigtext",
+      "targets": [
+        ["css=.verybigtext", "css:finder"],
+        ["xpath=//div[@id='content']/p[2]", "xpath:idRelative"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'This trip will require 18.3 liters of fuel, which amounts to a fuel cost of $32.97.')]", "xpath:innerText"]
+      ],
+      "value": "This trip will require 18.3 liters of fuel, which amounts to a fuel cost of $32.97."
+    }, {
+      "id": "bd5e6161-58e3-4490-9234-a6e26fb46712",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c4bc137a-5428-47d6-b56a-abcedb7e7d25",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["935bd106-7c27-44ee-a432-32ffb638ef8d"]
+  }],
+  "urls": ["https://www.calculator.net/"],
+  "plugins": []
+}
