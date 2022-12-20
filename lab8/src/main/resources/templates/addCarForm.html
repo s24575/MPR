@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form action="#" th:action="@{/cars/add}" th:object="${car}" method="post">
+      <p>Make: <input type="text" th:field="*{make}" /></p>
+      <p>Registration: <input type="text" th:field="*{registration}" /></p>
+      <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+  </form>
+</body>
+</html>

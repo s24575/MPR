@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+
+<head>
+    <title>MPR</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<tbody>
+<table>
+<tr th:each="car: ${cars}">
+    <td th:text="${car.id}" />
+    <td th:text="${car.make}" />
+    <td th:text="${car.registration}" />
+</tr>
+</tbody>
+</table>
+</body>
+
+</html>

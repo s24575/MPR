@@ -1,13 +1,16 @@
 package com.example.demo.car;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("cars-rest")
+@Controller
+//@RequestMapping("cars-rest")
 public class CarController {
     private CarService carService;
 
@@ -16,6 +19,43 @@ public class CarController {
     @Autowired
     public CarController(CarService carService) {
         this.carService = carService;
+    }
+
+    @GetMapping("/cars/show")
+    public String showCars(Model model){
+        System.out.println("SHOW CARS");
+        model.addAttribute("cars", carService.getCarRepository().findAll());
+        return "showCars";
+    }
+
+    @GetMapping("/cars/add")
+    public String addCar(Model model){
+        System.out.println("GET CAR");
+        model.addAttribute("car", new Car());
+        return "addCarForm";
+    }
+
+    @PostMapping("/cars/add")
+    public String saveCar(@ModelAttribute Car car, BindingResult errors, Model model) {
+        System.out.println("POST CAR");
+        carService.getCarRepository().save(car);
+        model.addAttribute("car", new Car());
+        return "addCarForm";
+    }
+
+    @GetMapping("/cars/update")
+    public String updateCar(Model model){
+        System.out.println("UPDATE CAR");
+        model.addAttribute("car", new Car());
+        return "updateCarForm";
+    }
+
+    @PostMapping("/cars/update")
+    public String saveCar(@ModelAttribute Car car, BindingResult errors, Model model) {
+        System.out.println("POST CAR");
+        carService.getCarRepository().save(car);
+        model.addAttribute("car", new Car());
+        return "addCarForm";
     }
 
     @GetMapping(value = "/id/{id}", produces = "application/json")
